@@ -1,8 +1,10 @@
 ﻿using Lab2Interpreter.Commands;
 
+namespace Lab2Interpreter;
+
 public static class CommandFactory
 {
-    public static ICommand CreateCommand(string input)
+    public static ICommand? CreateCommand(string input)
     {
         var tokens = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         if (tokens.Length == 0)
@@ -35,6 +37,13 @@ public static class CommandFactory
                 }
 
                 Console.WriteLine("INVALID USAGE: atomic X");
+                return null;                
+            case "impl":
+                if (tokens.Length == 3)
+                {
+                    return new ImplicationCommand(tokens[1], tokens[2]);
+                }
+                Console.WriteLine("INVALID USAGE: impl A B");
                 return null;
             case "exit":
                 return new ExitCommand();

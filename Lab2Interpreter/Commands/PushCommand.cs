@@ -3,17 +3,6 @@
 public class PushCommand : ICommand
 {
     private readonly int _value;
-
-    public PushCommand(char x)
-    {
-        _value = x;
-    }
-    
-    public PushCommand(int x)
-    {
-        _value = x;
-    }
-    
     public PushCommand(string x)
     {
         if (int.TryParse(x, out var value))

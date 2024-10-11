@@ -21,12 +21,6 @@ public class ProgramState
             var p = Proof[i];
             string operationDisplay = p.Operation;
 
-            // // If Operation is a single character code, convert it to a readable string
-            // if (int.TryParse(p.Operation, out int opValue))
-            // {
-            //     operationDisplay = $"'{(char)(opValue + 'a')}'";
-            // }
-
             Console.WriteLine($"{i,5} | {p.IsAssertion,-11} | {operationDisplay,-13} | {p.Arg1,4} | {p.Arg2,4}");
         }
         Console.WriteLine();
