@@ -45,6 +45,21 @@ public static class CommandFactory
                 }
                 Console.WriteLine("INVALID USAGE: impl A B");
                 return null;
+            case "eq13":
+                if (tokens.Length == 3)
+                {
+                    return new Eq13Command(tokens[1], tokens[2]);
+                }
+                Console.WriteLine("INVALID USAGE: eq13 A B");
+                return null;
+
+            case "eq14":
+                if (tokens.Length == 3)
+                {
+                    return new Eq14Command(tokens[1], tokens[2]);
+                }
+                Console.WriteLine("INVALID USAGE: eq14 A B");
+                return null;
             case "exit":
                 return new ExitCommand();
             default:
