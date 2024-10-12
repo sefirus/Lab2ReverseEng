@@ -67,6 +67,30 @@ public static class CommandFactory
                 }
                 Console.WriteLine("INVALID USAGE: modus A B");
                 return null;
+            case "trans":
+                if (tokens.Length == 3)
+                {
+                    return new TransitivityOfImplicationsCommand(tokens[1], tokens[2]);
+                }
+                Console.WriteLine("INVALID USAGE: trans A B");
+                return null;
+            case "conseq":
+                if (tokens.Length == 2)
+                    return new AssertConsequentCommand(tokens[1]);
+                Console.WriteLine("INVALID USAGE: conseq A");
+                return null;
+
+            case "cheat":
+                if (tokens.Length == 2)
+                    return new CheatAssertionCommand(tokens[1]);
+                Console.WriteLine("INVALID USAGE: cheat A");
+                return null;
+
+            case "goal":
+                if (tokens.Length == 2)
+                    return new SetGoalCommand(tokens[1]);
+                Console.WriteLine("INVALID USAGE: goal A");
+                return null;
             case "exit":
                 return new ExitCommand();
             default:

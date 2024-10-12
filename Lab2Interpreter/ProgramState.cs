@@ -16,8 +16,12 @@ public class ProgramState
         Console.WriteLine("\nCurrent Proof Array:");
         Console.WriteLine("Index | IsAssertion |   Operation   | Arg1 | Arg2");
         Console.WriteLine("------+-------------+---------------+------+------");
-        for (int i = 0; i < Pc; i++)
+        for (int i = 0; i < 256; i++)
         {
+            if (string.IsNullOrEmpty(Proof[i].Operation))
+            {
+                break;
+            }
             var p = Proof[i];
             string operationDisplay = p.Operation;
 

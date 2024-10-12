@@ -16,7 +16,7 @@ public class OutputCommand : ICommand
         
         if (state.Goal < 0 || state.Proof[state.Goal].IsAssertion)
         {
-            var outputChar = (char)(value + 'A');
+            var outputChar = (char)(value + 'a');
             Console.WriteLine($"OUTPUT: {outputChar}");
         }
         else

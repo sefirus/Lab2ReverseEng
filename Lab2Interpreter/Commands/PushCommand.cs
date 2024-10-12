@@ -2,10 +2,10 @@
 
 public class PushCommand : ICommand
 {
-    private readonly int _value;
+    private readonly byte _value;
     public PushCommand(string x)
     {
-        if (int.TryParse(x, out var value))
+        if (byte.TryParse(x, out var value))
         {
             _value = value;
             return;
@@ -14,7 +14,7 @@ public class PushCommand : ICommand
         {
             throw new ArgumentException("INVALID ARG");
         }
-        _value = x[0] - 'a';
+        _value = (byte)(x[0] - 'a');
     }
 
     public void Execute(ProgramState state)
