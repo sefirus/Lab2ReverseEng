@@ -14,8 +14,8 @@ public class ProgramState
     public void PrintProof()
     {
         Console.WriteLine("\nCurrent Proof Array:");
-        Console.WriteLine("Index | IsAssertion |   Operation   | Arg1 | Arg2");
-        Console.WriteLine("------+-------------+---------------+------+------");
+        Console.WriteLine("|Index | Arg1 | Arg2 | IsAssertion |   Operation   |");
+        Console.WriteLine("+------+------+------+-------------+---------------+");
         for (int i = 0; i < 256; i++)
         {
             if (string.IsNullOrEmpty(Proof[i].Operation))
@@ -25,7 +25,7 @@ public class ProgramState
             var p = Proof[i];
             string operationDisplay = p.Operation;
 
-            Console.WriteLine($"{i,5} | {p.IsAssertion,-11} | {operationDisplay,-13} | {p.Arg1,4} | {p.Arg2,4}");
+            Console.WriteLine($"| {i,4} | {p.Arg1,4} | {p.Arg2,4} | {p.IsAssertion,-11} | {operationDisplay,-14}|");
         }
         Console.WriteLine();
     }
