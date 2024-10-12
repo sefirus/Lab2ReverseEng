@@ -60,6 +60,13 @@ public static class CommandFactory
                 }
                 Console.WriteLine("INVALID USAGE: eq14 A B");
                 return null;
+            case "modus":
+                if (tokens.Length == 3)
+                {
+                    return new ModusPonensCommand(tokens[1], tokens[2]);
+                }
+                Console.WriteLine("INVALID USAGE: modus A B");
+                return null;
             case "exit":
                 return new ExitCommand();
             default:
